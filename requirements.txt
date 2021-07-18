@@ -9,3 +9,4 @@ six==1.15.0
 sklearn==0.0
 threadpoolctl==2.1.0
 dvc==2.5.4
+dagshub==0.1.6
