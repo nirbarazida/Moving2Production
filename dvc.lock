@@ -1,0 +1,48 @@
+schema: '2.0'
+stages:
+  data_preprocessing:
+    cmd: python src/data_preprocessing.py
+    deps:
+    - path: data/enron.csv
+      md5: 994e368ae5a22a6db1943a397e7c4308
+      size: 60219370
+    - path: src/const.py
+      md5: a1a78570f6c857331d50efd35e4a5945
+      size: 1080
+    - path: src/data_preprocessing.py
+      md5: 7cfaed9a7b23de020f21c691e7f2b134
+      size: 1248
+    outs:
+    - path: data/X_test.csv
+      md5: 40fb21a7dee0a0b5656b45dae7d87edb
+      size: 7785845
+    - path: data/X_train.csv
+      md5: 641bc30a53698b79cdc45ebb230bdbed
+      size: 31129310
+    - path: data/y_test.csv
+      md5: b2cf9cd99a5eb2e30a8823031303af67
+      size: 15564
+    - path: data/y_train.csv
+      md5: ab67e66fcba59cf8b6f5089fea82f94e
+      size: 62230
+  modeling:
+    cmd: python src/modeling.py
+    deps:
+    - path: data/X_test.csv
+      md5: 40fb21a7dee0a0b5656b45dae7d87edb
+      size: 7785845
+    - path: data/X_train.csv
+      md5: 641bc30a53698b79cdc45ebb230bdbed
+      size: 31129310
+    - path: data/y_test.csv
+      md5: b2cf9cd99a5eb2e30a8823031303af67
+      size: 15564
+    - path: data/y_train.csv
+      md5: ab67e66fcba59cf8b6f5089fea82f94e
+      size: 62230
+    - path: src/const.py
+      md5: a1a78570f6c857331d50efd35e4a5945
+      size: 1080
+    - path: src/modeling.py
+      md5: d32ec43cc92162a9eaffd841676fd427
+      size: 882

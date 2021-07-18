@@ -1,0 +1,21 @@
+stages:
+  data_preprocessing:
+    cmd: python src/data_preprocessing.py
+    deps:
+    - data/enron.csv
+    - src/const.py
+    - src/data_preprocessing.py
+    outs:
+    - data/X_test.csv
+    - data/X_train.csv
+    - data/y_test.csv
+    - data/y_train.csv
+  modeling:
+    cmd: python src/modeling.py
+    deps:
+    - data/X_test.csv
+    - data/X_train.csv
+    - data/y_test.csv
+    - data/y_train.csv
+    - src/const.py
+    - src/modeling.py
